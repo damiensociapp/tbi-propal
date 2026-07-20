@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TBI France × Sociapp — Proposition de contenu</title>
+<title>TBI France × Sociapp : proposition de contenu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -258,6 +258,42 @@
     color:var(--muted);font-size:14.5px;max-width:660px}
   .ig-extra b{color:var(--text)}
 
+  /* ---------- VOLETS SUMMARY (top nav) ---------- */
+  section[id]{scroll-margin-top:56px}
+  .volets-band{border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);
+    background:linear-gradient(180deg,rgba(18,43,64,.4),transparent);padding:34px 0}
+  .volets-h{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .volets-h::after{content:"";height:1px;flex:1;background:var(--panel-line)}
+  .volets{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:600px){.volets{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.volets{grid-template-columns:repeat(4,1fr)}}
+  .volet{display:block;text-decoration:none;color:inherit;border:1px solid var(--panel-line);
+    border-radius:12px;padding:18px 16px;background:rgba(18,43,64,.32);
+    transition:border-color .2s ease,transform .2s ease,background .2s ease}
+  .volet:hover{border-color:rgba(255,178,62,.5);transform:translateY(-2px);background:rgba(18,43,64,.55)}
+  .volet:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  .volet .vn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+    color:var(--amber);margin-bottom:9px}
+  .volet h4{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:17px;line-height:1.06;margin-bottom:5px;letter-spacing:.01em}
+  .volet p{font-size:12.5px;color:var(--muted);line-height:1.42}
+  .volet.opt .vn{color:var(--sky)}
+
+  /* ---------- SEO SECTION ---------- */
+  .seo-stat{display:grid;grid-template-columns:1fr;border:1px solid #e2ddd2;border-radius:12px;
+    overflow:hidden;background:#fff;margin-bottom:8px;box-shadow:0 14px 32px -28px rgba(10,23,34,.4)}
+  @media(min-width:700px){.seo-stat{grid-template-columns:1fr 1fr}}
+  .seo-stat .half{padding:24px 22px}
+  .seo-stat .half.now{background:#f7f3ea;border-bottom:1px solid #e2ddd2}
+  @media(min-width:700px){.seo-stat .half.now{border-bottom:0;border-right:1px solid #e2ddd2}}
+  .seo-stat .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:#6a7a86;margin-bottom:10px}
+  .seo-stat .big{font-family:"Saira Condensed",sans-serif;font-weight:800;
+    font-size:clamp(36px,6.5vw,56px);line-height:.9;color:#16242f;letter-spacing:-.01em}
+  .seo-stat .big.amber{color:var(--amber-deep)}
+  .seo-stat p{font-size:13.5px;color:#55636c;margin-top:10px}
+
   /* ---------- SUB-BLOCK HEADER (inside sections) ---------- */
   .sub{margin:54px 0 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
   .sub-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-deep)}
@@ -405,7 +441,7 @@
 <div class="manifest">
   <div class="manifest-row">
     <div><b>SOCIAPP</b> <span class="brand-x">×</span> <b>TBI FRANCE</b></div>
-    <div class="manifest-mid">AWB&nbsp;074-PARIS&nbsp;/&nbsp;PROPOSITION&nbsp;DE&nbsp;CONTENU</div>
+    <div class="manifest-mid">PROPOSITION&nbsp;&middot;&nbsp;LINKEDIN,&nbsp;INSTAGRAM&nbsp;&amp;&nbsp;SEO</div>
     <div class="status"><span class="dot"></span> LIVE DEMO</div>
   </div>
 </div>
@@ -413,7 +449,7 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <div class="hero-eyebrow reveal">Stratégie réseaux · LinkedIn + Instagram</div>
+    <div class="hero-eyebrow reveal">Stratégie de contenu · LinkedIn, Instagram &amp; SEO</div>
     <h1 class="reveal">Arrêtons de faire<br>la com <span class="strike">d'un transitaire.</span><br>Faisons de TBI <em>un média.</em></h1>
     <p class="hero-lede reveal">Dans la logistique, une page entreprise qui parle d'elle-même ne décolle jamais. <b>Personne ne suit un transitaire pour voir un transitaire.</b> Alors on change de terrain : TBI devient la référence qui décrypte le commerce international pour ceux qui exportent du sensible.</p>
 
@@ -434,27 +470,56 @@
   </div>
 </header>
 
+<!-- SOMMAIRE DES VOLETS -->
+<div class="volets-band">
+  <div class="wrap">
+    <div class="volets-h reveal">La proposition, en 4 volets</div>
+    <div class="volets">
+      <a class="volet reveal" href="#v1">
+        <div class="vn">VOLET 01</div>
+        <h4>LinkedIn</h4>
+        <p>Posts ghostwrités, articles longs et liens vers votre site. Le canal des leads B2B.</p>
+      </a>
+      <a class="volet reveal" href="#v2">
+        <div class="vn">VOLET 02</div>
+        <h4>Instagram</h4>
+        <p>Une ligne éditoriale de 5 rubriques qui raconte le métier sans jamais l'annoncer.</p>
+      </a>
+      <a class="volet reveal" href="#v3">
+        <div class="vn">VOLET 03</div>
+        <h4>Articles SEO</h4>
+        <p>On se branche sur votre site et on capte le trafic Google, mois après mois.</p>
+      </a>
+      <a class="volet opt reveal" href="#v4">
+        <div class="vn">VOLET 04 &middot; OPTION</div>
+        <h4>Visuels &amp; vidéos IA</h4>
+        <p>Des images impossibles à shooter, sans tournage ni budget photo.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- LEG: REFRAME -->
 <section>
   <div class="wrap">
     <div class="leg reveal">
-      <span class="leg-code mono">AWB-074 / POS</span>
+      <span class="leg-code mono">STRATÉGIE</span>
       <span class="leg-title">Le positionnement</span>
       <span class="leg-sub">3 PILIERS · 1 PROMESSE</span>
     </div>
     <div class="reframe">
       <div class="card reveal">
-        <div class="kx">01 — L'angle</div>
+        <div class="kx">01 · L'angle</div>
         <h3>Un média, pas une vitrine</h3>
         <p>On ne poste pas « nos camions ». On décrypte la douane, le fret, la chaîne du froid. L'autorité naît de <b>« cette boîte comprend mon problème »</b>, jamais de l'auto-promotion.</p>
       </div>
       <div class="card reveal">
-        <div class="kx">02 — La cible</div>
+        <div class="kx">02 · La cible</div>
         <h3>Ceux qui exportent du sensible</h3>
         <p>Responsables export et supply chain dans le <b>vin, le luxe, la pharma, la cosmétique</b>. Des gens pour qui une erreur de transport coûte une fortune. On leur parle d'eux.</p>
       </div>
       <div class="card reveal">
-        <div class="kx">03 — Le moteur</div>
+        <div class="kx">03 · Le moteur</div>
         <h3>Le dirigeant, pas la page</h3>
         <p>Une page entreprise = ~1&nbsp;% de portée. Un humain qui parle = <b>10 à 50× plus</b>. On ghostwrite le dirigeant, dans sa voix, sans qu'il ait à écrire une ligne.</p>
       </div>
@@ -488,11 +553,11 @@
 </section>
 
 <!-- LEG: LINKEDIN -->
-<section class="lightbox">
+<section class="lightbox" id="v1">
   <div class="wrap">
     <div class="leg reveal">
-      <span class="leg-code mono">AWB-074 / LKD</span>
-      <span class="leg-title">LinkedIn — 3 posts prêts</span>
+      <span class="leg-code mono">VOLET 01</span>
+      <span class="leg-title">LinkedIn : 3 posts prêts</span>
       <span class="leg-sub">GÉNÉRATION DE LEADS B2B</span>
     </div>
     <p class="li-intro reveal">Voici très exactement le type de publications qu'on sortirait dès le premier mois. <b>Deux posts ghostwrités au nom du dirigeant, un décryptage au nom de la marque.</b> Zéro tournage, zéro storytelling à produire par le client.</p>
@@ -507,7 +572,7 @@
             <div class="av p1">TB</div>
             <div class="li-meta">
               <b>‹ Dirigeant TBI ›</b>
-              <span class="sub">Fondateur · TBI&nbsp;— Trans Business International</span>
+              <span class="sub">Fondateur · TBI&nbsp;· Trans Business International</span>
               <span class="time">Aujourd'hui</span>
             </div>
           </div>
@@ -536,19 +601,19 @@ On croit que la logistique, c'est des conteneurs et des codes-barres. Parfois, c
 
       <!-- POST 2 -->
       <article class="li reveal">
-        <div class="li-tag"><span>POST 02 · EXPERTISE VERTICALE — VIN</span><span class="edit-tag">nom à personnaliser</span></div>
+        <div class="li-tag"><span>POST 02 · EXPERTISE VERTICALE · VIN</span><span class="edit-tag">nom à personnaliser</span></div>
         <div class="li-body">
           <div class="li-head">
             <div class="av p2">TB</div>
             <div class="li-meta">
               <b>‹ Dirigeant TBI ›</b>
-              <span class="sub">Fondateur · TBI&nbsp;— Trans Business International</span>
+              <span class="sub">Fondateur · TBI&nbsp;· Trans Business International</span>
               <span class="time">Il y a 2 jours</span>
             </div>
           </div>
           <div class="li-text">On m'a appelé la semaine dernière pour « sauver » une palette de grands crus bloquée en douane. Trop tard, évidemment.
 
-Voici les <span class="h">3 erreurs qui tuent un export de vin hors UE</span> — toutes évitables :
+Voici les <span class="h">3 erreurs qui tuent un export de vin hors UE</span>, toutes évitables :
 
 <span class="h">1. Le DAE mal clôturé.</span> La douane ne pardonne pas. Votre palette dort en entrepôt, température non maîtrisée.
 
@@ -569,17 +634,17 @@ Le vin se transporte comme il se vinifie : avec méthode. Sinon il meurt en rout
 
       <!-- POST 3 -->
       <article class="li span2 reveal">
-        <div class="li-tag page"><span>POST 03 · MARQUE — NEWSLETTER « LE FRET DÉCRYPTÉ »</span><span>faceless · 100% produit par Sociapp</span></div>
+        <div class="li-tag page"><span>POST 03 · MARQUE · NEWSLETTER « LE FRET DÉCRYPTÉ »</span><span>faceless · 100% produit par Sociapp</span></div>
         <div class="li-body">
           <div class="li-head">
             <div class="av page">TBI</div>
             <div class="li-meta">
-              <b>TBI — Trans Business International</b>
+              <b>TBI · Trans Business International</b>
               <span class="sub">Le Fret Décrypté · édition #01</span>
               <span class="time">Cette semaine</span>
             </div>
           </div>
-          <div class="li-text"><span class="h">LE FRET DÉCRYPTÉ #01 — Pourquoi vos délais aériens s'allongent (et ce que ça change pour vous).</span>
+          <div class="li-text"><span class="h">LE FRET DÉCRYPTÉ #01 : pourquoi vos délais aériens s'allongent (et ce que ça change pour vous).</span>
 
 Le report d'une partie du fret maritime vers l'aérien sature les soutes. Concrètement, pour un exportateur : capacité plus rare, tarifs plus nerveux, priorité aux marchandises… bien préparées.
 
@@ -661,11 +726,11 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
 </section>
 
 <!-- LEG: INSTAGRAM -->
-<section>
+<section id="v2">
   <div class="wrap">
     <div class="leg reveal">
-      <span class="leg-code mono">AWB-074 / IGM</span>
-      <span class="leg-title">Instagram — « POV : ton colis »</span>
+      <span class="leg-code mono">VOLET 02</span>
+      <span class="leg-title">Instagram : « POV : ton colis »</span>
       <span class="leg-sub">FACELESS · CINÉMATIQUE</span>
     </div>
     <p class="ig-intro reveal">Le client ne veut pas se filmer ? <b>On ne filme personne.</b> La logistique est spectaculaire sans aucun humain à l'écran. Format Reel addictif : on suit un objet du magasin parisien jusqu'à sa vitrine à l'autre bout du monde. Images générées + quelques plans bruts au smartphone, <b>montés intégralement par nos soins.</b></p>
@@ -694,7 +759,7 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
       <div class="board reveal">
         <div class="frame"><div class="fn">FRAME 01</div><div class="ft">Paris, 21h.</div><div class="fd">Une boutique à la fermeture. « POV : tu es une robe haute couture. »</div></div>
         <div class="frame"><div class="fn">FRAME 02</div><div class="ft">L'emballage</div><div class="fd">Mains gantées, papier de soie, caisse sur-mesure. « On t'emballe comme une œuvre. »</div></div>
-        <div class="frame"><div class="fn">FRAME 03</div><div class="ft">Le tarmac, CDG</div><div class="fd">Soute qui s'ouvre, lumière ambre, nuit. « 22h47 — embarquement. »</div></div>
+        <div class="frame"><div class="fn">FRAME 03</div><div class="ft">Le tarmac, CDG</div><div class="fd">Soute qui s'ouvre, lumière ambre, nuit. « 22h47, embarquement. »</div></div>
         <div class="frame"><div class="fn">FRAME 04</div><div class="ft">La trajectoire</div><div class="fd">Carte animée, trait lumineux Paris → Tokyo. « 11 342 km plus tard. »</div></div>
         <div class="frame"><div class="fn">FRAME 05</div><div class="ft">Tokyo, 9h.</div><div class="fd">Vitrine, lumière du matin. « Tu es en place. Personne n'a su comment. »</div></div>
         <div class="frame" style="background:linear-gradient(150deg,var(--amber-deep),var(--amber));color:#1a1006">
@@ -717,12 +782,81 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
   </div>
 </section>
 
-<!-- LEG: AI OPTION -->
-<section class="ai">
+<!-- LEG: SEO -->
+<section class="lightbox" id="v3">
   <div class="wrap">
     <div class="leg reveal">
-      <span class="leg-code mono">AWB-074 / AIV</span>
-      <span class="leg-title">Option — visuels &amp; vidéos IA</span>
+      <span class="leg-code mono">VOLET 03</span>
+      <span class="leg-title">Articles SEO sur votre site</span>
+      <span class="leg-sub">TRAFIC DURABLE · LONGUE TRAÎNE</span>
+    </div>
+    <p class="li-intro reveal">Les réseaux créent de la visibilité, mais elle s'éteint en 48 heures. Un article bien positionné sur Google, lui, ramène des clients <b>tous les mois, pendant des années.</b> On se branche directement sur votre site et on écrit les contenus que vos prospects tapent déjà dans Google.</p>
+
+    <div class="seo-stat reveal">
+      <div class="half now">
+        <div class="lbl mono">AUJOURD'HUI</div>
+        <div class="big">1 page</div>
+        <p>Votre site ne compte qu'une page d'accueil. Google n'a donc qu'une seule porte d'entrée à proposer, et uniquement à ceux qui cherchent déjà votre nom.</p>
+      </div>
+      <div class="half">
+        <div class="lbl mono">DANS 6 MOIS</div>
+        <div class="big amber">20+ pages</div>
+        <p>Chaque article devient une porte d'entrée sur une question précise, et une cible pour les liens publiés depuis LinkedIn dans le volet 01.</p>
+      </div>
+    </div>
+
+    <div class="sub reveal">
+      <span class="sub-k mono">+ LA MÉTHODE</span>
+      <h3>La longue traîne : viser précis plutôt que large</h3>
+      <p class="note">Personne ne sortira premier sur « transitaire », le mot est trop disputé. Mais sur « expédier du vin aux États-Unis par avion », la concurrence est faible et celui qui tape ça a un besoin immédiat. C'est exactement là qu'on va chercher vos clients.</p>
+    </div>
+    <div class="arts">
+      <article class="art reveal">
+        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <h4>Expédier du vin par avion vers les États-Unis : douane, température et coûts</h4>
+        <p>Un domaine viticole qui prépare son premier export tape exactement cette question. Il ne cherche pas un transporteur, il cherche une réponse. On la lui donne, il vous appelle.</p>
+        <div class="link mono">↳ intention : <b>très forte, prospect prêt à acheter</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <h4>Pièce d'avion AOG : quel délai réel pour une livraison d'urgence ?</h4>
+        <p>Une compagnie avec un appareil cloué au sol cherche dans la minute. Ce sont les dossiers les plus rentables, et personne dans votre secteur n'écrit dessus.</p>
+        <div class="link mono">↳ intention : <b>urgence, panier très élevé</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <h4>Transporter une œuvre d'art hors UE : formalités, emballage, assurance</h4>
+        <p>Galeries et maisons de vente cherchent un spécialiste, pas un généraliste. Un article de fond vous positionne immédiatement comme l'expert de cette niche.</p>
+        <div class="link mono">↳ intention : <b>niche à forte valeur</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <h4>Dédouanement à Roissy CDG : combien de temps ça prend vraiment ?</h4>
+        <p>Une requête locale, très recherchée, qui capte les PME d'Île-de-France au moment précis où elles se posent la question de changer de prestataire.</p>
+        <div class="link mono">↳ intention : <b>recherche locale, fort volume</b></div>
+      </article>
+    </div>
+
+    <div class="sub reveal">
+      <span class="sub-k mono">+ CE QU'ON GÈRE</span>
+      <h3>On se plugue à votre site, vous n'avez rien à faire</h3>
+      <p class="note">Un simple accès rédacteur suffit. On publie directement chez vous, dans votre charte, sans vous demander une ligne.</p>
+    </div>
+    <div class="ideas">
+      <div class="idea reveal"><b>Recherche de mots-clés</b><span>On identifie les questions que vos clients tapent réellement, et celles où vous pouvez sortir en première page.</span></div>
+      <div class="idea reveal"><b>Rédaction experte</b><span>Des articles de fond, documentés, écrits pour être lus par un humain et non pour remplir du vide.</span></div>
+      <div class="idea reveal"><b>Publication directe</b><span>On se connecte à votre site et on met en ligne : titres, images, balises, tout est déjà optimisé.</span></div>
+      <div class="idea reveal"><b>Maillage et suivi</b><span>Les articles se renvoient entre eux, reçoivent les liens LinkedIn, et on vous montre le trafic gagné chaque mois.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEG: AI OPTION -->
+<section class="ai" id="v4">
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">VOLET 04 · OPTION</span>
+      <span class="leg-title">Option : visuels &amp; vidéos IA</span>
       <span class="leg-sub">SI BUDGET DÉDIÉ</span>
     </div>
     <div class="ai-grid">
@@ -751,17 +885,17 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
 <section class="calx">
   <div class="wrap">
     <div class="leg reveal">
-      <span class="leg-code mono">AWB-074 / CAL</span>
+      <span class="leg-code mono">PLANNING</span>
       <span class="leg-title">Un mois, en clair</span>
       <span class="leg-sub">LINKEDIN + INSTAGRAM</span>
     </div>
-    <p class="cal-intro reveal">Voilà à quoi ressemblerait un premier mois : <b>jamais deux fois le même format.</b> Un fil rouge sur LinkedIn pour les leads, une ligne narrative sur Instagram pour la marque. Le tout produit par Sociapp à partir de sources publiques : vous validez avant publication, c'est tout.</p>
+    <p class="cal-intro reveal">Voilà à quoi ressemblerait un premier mois : <b>jamais deux fois le même format.</b> Un fil rouge sur LinkedIn pour les leads, une ligne narrative sur Instagram pour la marque. En parallèle, 2 à 4 articles SEO partent sur votre site (volet 03). Le tout produit par Sociapp à partir de sources publiques : vous validez avant publication, c'est tout.</p>
     <div class="cal">
 
       <div class="week reveal">
         <div class="week-h"><span class="wk">Semaine 1</span><span class="theme">On plante le décor</span></div>
         <div class="slots">
-          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Histoire — le hand carry</b><span>La pièce d'avion sauvée en mallette. Le post qui fait découvrir le métier.</span></div>
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Histoire : le hand carry</b><span>La pièce d'avion sauvée en mallette. Le post qui fait découvrir le métier.</span></div>
           <div class="slot"><span class="ch cli mono">LinkedIn · marque</span><b>Le Fret Décrypté #01</b><span>Newsletter : pourquoi les délais aériens s'allongent.</span></div>
           <div class="slot"><span class="ch cig mono">Instagram</span><b>POV : ton colis #1</b><span>Reel : la robe haute couture, Paris → Tokyo.</span></div>
           <div class="slot"><span class="ch cig mono">Instagram</span><b>Carte postale</b><span>Direction Tokyo + un fait insolite. Story + post.</span></div>
@@ -771,7 +905,7 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
       <div class="week reveal">
         <div class="week-h"><span class="wk">Semaine 2</span><span class="theme">On installe l'expertise</span></div>
         <div class="slots">
-          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Expertise — 3 erreurs vin</b><span>Le post verticale qui parle aux domaines viticoles.</span></div>
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Expertise : 3 erreurs vin</b><span>Le post verticale qui parle aux domaines viticoles.</span></div>
           <div class="slot"><span class="ch cart mono">Article + backlink</span><b>Guide export vin hors UE</b><span>Article long natif, lien vers tbifrance.com.</span></div>
           <div class="slot"><span class="ch cig mono">Instagram</span><b>Cargo Confidentiel</b><span>Devine la marchandise mystère de la semaine.</span></div>
           <div class="slot"><span class="ch cig mono">Instagram</span><b>Anatomie d'une expédition</b><span>Carrousel : emballer une caisse de grands crus.</span></div>
@@ -800,7 +934,7 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
 
     </div>
     <div class="cal-legend reveal">
-      <i class="lg-li">LinkedIn — dirigeant / marque</i>
+      <i class="lg-li">LinkedIn · dirigeant / marque</i>
       <i class="lg-art">Article LinkedIn (backlink site)</i>
       <i class="lg-ig">Instagram</i>
     </div>
@@ -812,10 +946,10 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
   <div class="wrap cta-in">
     <div class="reveal">
       <h2>Prochaine étape :<br><em>on vous montre un mois complet.</em></h2>
-      <p>Ce kit n'est qu'un échantillon. On peut produire le calendrier éditorial des 4 prochaines semaines — LinkedIn + Instagram — pour que vous voyiez exactement ce qui sera publié, avant tout engagement.</p>
+      <p>Ce kit n'est qu'un échantillon. On peut produire le calendrier éditorial des 4 prochaines semaines (LinkedIn, Instagram et SEO) pour que vous voyiez exactement ce qui sera publié, avant tout engagement.</p>
     </div>
     <div class="cta-box reveal">
-      <div class="row"><div class="lbl">Réseaux</div><div class="val">LinkedIn + Instagram</div></div>
+      <div class="row"><div class="lbl">Canaux</div><div class="val">LinkedIn, Instagram &amp; SEO</div></div>
       <div class="row"><div class="lbl">Effort client</div><div class="val amber">Valider, c'est tout</div></div>
       <div class="row"><div class="lbl">Production</div><div class="val">100 % Sociapp</div></div>
     </div>
