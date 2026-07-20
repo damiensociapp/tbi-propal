@@ -299,6 +299,45 @@
     font-size:12px;color:#3c4a54;line-height:1.35}
   .kw::before{content:"⌕";font-size:16px;color:var(--amber-deep);flex:none;font-weight:700}
 
+  /* trafic : volumes de recherche + projection */
+  .traffic{background:#fff;border:1px solid #e2ddd2;border-radius:12px;padding:26px 24px;
+    box-shadow:0 14px 32px -28px rgba(10,23,34,.4);margin-bottom:16px}
+  .traffic-head{display:flex;justify-content:space-between;align-items:baseline;
+    flex-wrap:wrap;gap:10px;margin-bottom:22px}
+  .traffic-head h4{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:20px;color:#16242f;letter-spacing:.01em}
+  .traffic-head .est{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:#8a949b}
+  .chart-wrap{overflow-x:auto}
+  .chart{width:100%;min-width:520px;height:auto;display:block}
+  .chart-notes{display:grid;gap:16px;grid-template-columns:1fr;margin-top:20px;
+    border-top:1px dashed #e2ddd2;padding-top:18px}
+  @media(min-width:640px){.chart-notes{grid-template-columns:repeat(3,1fr)}}
+  .cn .l{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:#6a7a86;margin-bottom:5px}
+  .cn .v{font-family:"Saira Condensed",sans-serif;font-weight:800;font-size:27px;line-height:1;
+    color:#16242f;font-variant-numeric:tabular-nums}
+  .cn .v.amber{color:var(--amber-deep)}
+  .cn p{font-size:12.5px;color:#55636c;margin-top:6px}
+
+  .kwvol{background:#fff;border:1px solid #e2ddd2;border-radius:12px;overflow:hidden;
+    box-shadow:0 14px 32px -28px rgba(10,23,34,.4)}
+  .kwrow{display:grid;grid-template-columns:1fr auto;gap:16px;padding:13px 18px;
+    border-bottom:1px solid #f2ece1;align-items:center}
+  .kwrow.head{background:#f7f3ea;border-bottom:1px solid #e2ddd2}
+  .kwrow.head span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:#6a7a86}
+  .kwrow.head span:last-child{text-align:right}
+  .kwrow .q{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:#3c4a54}
+  .kwrow .v{font-family:"Saira Condensed",sans-serif;font-weight:700;font-size:18px;color:#16242f;
+    font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .kwvol-foot{background:#f7f3ea;border-top:1px solid #e2ddd2;padding:16px 18px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .kwvol-foot b{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:16px;color:#16242f}
+  .kwvol-foot .tot{font-family:"Saira Condensed",sans-serif;font-weight:800;font-size:24px;
+    color:var(--amber-deep);font-variant-numeric:tabular-nums}
+
   /* ---------- SUB-BLOCK HEADER (inside sections) ---------- */
   .sub{margin:54px 0 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
   .sub-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-deep)}
@@ -852,6 +891,88 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
     </div>
 
     <div class="sub reveal">
+      <span class="sub-k mono">+ LE POTENTIEL</span>
+      <h3>Ce que ça représente en trafic</h3>
+      <p class="note">Chaque requête prise isolément paraît modeste. C'est justement la force de la longue traîne : elle s'additionne. Voici les volumes de recherche mensuels sur quelques mots-clés de votre niche, puis ce que donne l'accumulation sur un an.</p>
+    </div>
+
+    <div class="kwvol reveal">
+      <div class="kwrow head"><span>Mot-clé ciblé</span><span>Recherches / mois</span></div>
+      <div class="kwrow"><div class="q">fret aérien ou maritime : comment choisir</div><div class="v">210</div></div>
+      <div class="kwrow"><div class="q">délai dédouanement roissy cdg</div><div class="v">140</div></div>
+      <div class="kwrow"><div class="q">expédier du vin par avion vers les états-unis</div><div class="v">90</div></div>
+      <div class="kwrow"><div class="q">transporter une œuvre d'art hors ue douane</div><div class="v">70</div></div>
+      <div class="kwrow"><div class="q">envoyer des cosmétiques en asie réglementation</div><div class="v">50</div></div>
+      <div class="kwrow"><div class="q">délai livraison pièce avion aog urgence</div><div class="v">40</div></div>
+      <div class="kwvol-foot">
+        <b>6 mots-clés sur les 120 prévus</b>
+        <span class="tot">600 recherches / mois</span>
+      </div>
+    </div>
+
+    <p class="li-intro reveal" style="margin:22px 0 18px">Ces 6 articles captent déjà 600 recherches par mois. Étendu aux 120 articles de l'année, le vivier dépasse <b>12 000 recherches mensuelles.</b> En n'en captant qu'un quart, voici la courbe :</p>
+
+    <div class="traffic reveal">
+      <div class="traffic-head">
+        <h4>Projection du trafic sur 12 mois</h4>
+        <span class="est mono">Estimations indicatives · visiteurs / mois</span>
+      </div>
+      <div class="chart-wrap">
+        <svg class="chart" viewBox="0 0 900 260" role="img" aria-label="Courbe de progression du trafic : environ 250 visiteurs par mois au 3e mois, 900 au 6e, 3000 au 12e">
+          <defs>
+            <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F0892B" stop-opacity=".30"/>
+              <stop offset="1" stop-color="#F0892B" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#eee7da" stroke-width="1">
+            <line x1="60" y1="30" x2="860" y2="30"/>
+            <line x1="60" y1="78" x2="860" y2="78"/>
+            <line x1="60" y1="125" x2="860" y2="125"/>
+            <line x1="60" y1="172" x2="860" y2="172"/>
+            <line x1="60" y1="220" x2="860" y2="220"/>
+          </g>
+          <g fill="#8a949b" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">
+            <text x="50" y="34">3 000</text>
+            <text x="50" y="129">1 500</text>
+            <text x="50" y="224">0</text>
+          </g>
+          <path d="M60,220 L127,219 L193,216 L260,204 L327,193 L393,180 L460,163 L527,141 L593,119 L660,93 L727,68 L793,49 L860,30 L860,220 L60,220 Z" fill="url(#tg)"/>
+          <path d="M60,220 L127,219 L193,216 L260,204 L327,193 L393,180 L460,163 L527,141 L593,119 L660,93 L727,68 L793,49 L860,30"
+                fill="none" stroke="#F0892B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="260" cy="204" r="5" fill="#fff" stroke="#F0892B" stroke-width="2.5"/>
+          <circle cx="460" cy="163" r="5" fill="#fff" stroke="#F0892B" stroke-width="2.5"/>
+          <circle cx="860" cy="30" r="6.5" fill="#F0892B"/>
+          <g fill="#8a949b" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">
+            <text x="60" y="246">M0</text>
+            <text x="260" y="246">M3</text>
+            <text x="460" y="246">M6</text>
+            <text x="660" y="246">M9</text>
+            <text x="860" y="246">M12</text>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-notes">
+        <div class="cn">
+          <div class="l mono">3 MOIS · 30 ARTICLES</div>
+          <div class="v">250</div>
+          <p>Les premiers articles sortent sur Google. Le trafic démarre doucement, c'est normal.</p>
+        </div>
+        <div class="cn">
+          <div class="l mono">6 MOIS · 60 ARTICLES</div>
+          <div class="v">900</div>
+          <p>Les articles publiés gagnent des positions pendant que les nouveaux s'ajoutent.</p>
+        </div>
+        <div class="cn">
+          <div class="l mono">12 MOIS · 120 ARTICLES</div>
+          <div class="v amber">3 000</div>
+          <p>À 1 % de prise de contact, cela représente une trentaine de demandes qualifiées par mois.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note reveal" style="color:#6a7a86;font-size:13px;margin-bottom:8px">Volumes et projection donnés à titre indicatif, à confirmer par un audit de mots-clés complet en début de mission. Le SEO met plusieurs mois à produire ses effets, mais le trafic acquis, lui, ne s'arrête pas.</p>
+
+    <div class="sub reveal">
       <span class="sub-k mono">+ CE QU'ON GÈRE</span>
       <h3>On se plugue à votre site, vous n'avez rien à faire</h3>
       <p class="note">Un simple accès rédacteur suffit. On publie directement chez vous, dans votre charte, sans vous demander une ligne.</p>
@@ -959,8 +1080,8 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
 <section class="cta">
   <div class="wrap cta-in">
     <div class="reveal">
-      <h2>Prochaine étape :<br><em>on vous montre un mois complet.</em></h2>
-      <p>Ce kit n'est qu'un échantillon. On peut produire le calendrier éditorial des 4 prochaines semaines (LinkedIn, Instagram et SEO) pour que vous voyiez exactement ce qui sera publié, avant tout engagement.</p>
+      <h2>Prochaine étape :<br><em>on en parle ensemble.</em></h2>
+      <p>Ce kit est un échantillon de plusieurs idées que l'on pourrait avoir. Dites-nous ce qui vous parle, ce qui vous semble hors sujet, et on affine le dispositif à partir de vos priorités.</p>
     </div>
     <div class="cta-box reveal">
       <div class="row"><div class="lbl">Canaux</div><div class="val">LinkedIn, Instagram &amp; SEO</div></div>
