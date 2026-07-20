@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TBI France × Sociapp — Proposition de contenu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1722;
+    --ink-2:#0E2032;
+    --panel:#122B40;
+    --panel-line:rgba(255,255,255,.10);
+    --paper:#F3EFE6;
+    --paper-2:#FBF9F4;
+    --amber:#FFB23E;
+    --amber-deep:#F0892B;
+    --sky:#7FC2D2;
+    --text:#E9EEF3;
+    --muted:#8DA2B5;
+    --muted-soft:#6F8499;
+    --li:#0A66C2;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ---------- MANIFEST BAR ---------- */
+  .manifest{
+    border-bottom:1px solid var(--panel-line);
+    background:rgba(10,23,34,.86);
+    backdrop-filter:blur(10px);
+    position:sticky;top:0;z-index:50;
+  }
+  .manifest-row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:13px 28px;max-width:1080px;margin:0 auto;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .manifest-row b{color:var(--text);font-weight:600}
+  .brand-x{color:var(--amber);font-weight:600}
+  .status{display:flex;align-items:center;gap:7px;color:var(--amber)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);
+    box-shadow:0 0 0 0 rgba(255,178,62,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,178,62,.55)}70%{box-shadow:0 0 0 9px rgba(255,178,62,0)}100%{box-shadow:0 0 0 0 rgba(255,178,62,0)}}
+  .manifest-mid{display:none}
+  @media(min-width:720px){.manifest-mid{display:block}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:78px 0 30px;overflow:hidden}
+  .hero-eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:22px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .hero-eyebrow::after{content:"";height:1px;flex:1;max-width:120px;background:linear-gradient(90deg,var(--amber),transparent)}
+  h1{
+    font-family:"Saira Condensed",sans-serif;font-weight:800;
+    font-size:clamp(42px,8.5vw,92px);line-height:.96;letter-spacing:-.01em;
+    text-transform:uppercase;margin-bottom:26px;
+  }
+  h1 .strike{position:relative;color:var(--muted);white-space:nowrap}
+  h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:6px;
+    background:var(--amber-deep);transform:rotate(-1.5deg);border-radius:3px}
+  h1 em{font-style:normal;color:var(--amber)}
+  .hero-lede{font-size:clamp(17px,2.3vw,21px);color:var(--muted);max-width:640px;margin-bottom:40px}
+  .hero-lede b{color:var(--text);font-weight:600}
+
+  /* flight path */
+  .route{
+    margin-top:14px;border:1px solid var(--panel-line);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(18,43,64,.55),rgba(18,43,64,.15));
+    padding:22px 26px;position:relative;overflow:hidden;
+  }
+  .route-head{display:flex;justify-content:space-between;align-items:center;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .route-svg{width:100%;height:74px;display:block}
+  .route-ends{display:flex;justify-content:space-between;margin-top:6px}
+  .route-end{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(15px,2.4vw,20px);letter-spacing:.02em}
+  .route-end span{display:block;font-family:"IBM Plex Mono",monospace;font-weight:400;
+    font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+  .route-end.dest{text-align:right;color:var(--amber)}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0}
+  .leg{
+    display:flex;align-items:baseline;gap:16px;margin-bottom:34px;
+    font-family:"IBM Plex Mono",monospace;
+  }
+  .leg-code{color:var(--amber);font-size:12px;letter-spacing:.12em;font-weight:600;
+    border:1px solid rgba(255,178,62,.35);padding:5px 9px;border-radius:6px;white-space:nowrap}
+  .leg-title{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(24px,4.4vw,38px);letter-spacing:.01em;line-height:1.02;color:var(--text)}
+  .leg-sub{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);margin-left:auto;text-align:right;display:none}
+  @media(min-width:760px){.leg-sub{display:block}}
+
+  /* ---------- PITCH (reframe) ---------- */
+  .reframe{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:760px){.reframe{grid-template-columns:repeat(3,1fr)}}
+  .card{
+    border:1px solid var(--panel-line);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(18,43,64,.5),rgba(14,32,50,.25));
+    padding:26px 24px;position:relative;
+  }
+  .card .kx{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    color:var(--amber);text-transform:uppercase;margin-bottom:14px}
+  .card h3{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:22px;letter-spacing:.01em;margin-bottom:10px;line-height:1.05}
+  .card p{color:var(--muted);font-size:15px}
+  .card p b{color:var(--text);font-weight:600}
+
+  /* ---------- EFFORT MODEL ---------- */
+  .effort{
+    margin-top:40px;border:1px solid var(--panel-line);border-radius:var(--r);
+    background:var(--ink-2);overflow:hidden;
+    display:grid;grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.effort{grid-template-columns:.85fr 1.15fr}}
+  .effort-big{
+    padding:34px 30px;background:linear-gradient(150deg,var(--amber-deep),var(--amber));
+    color:#1A1006;display:flex;flex-direction:column;justify-content:center;
+  }
+  .effort-big .num{font-family:"Saira Condensed",sans-serif;font-weight:800;
+    font-size:clamp(56px,12vw,96px);line-height:.86;letter-spacing:-.01em}
+  .effort-big .num small{font-size:.32em;display:block;letter-spacing:.04em;font-weight:700;margin-top:6px}
+  .effort-big p{font-size:14px;margin-top:14px;font-weight:500;max-width:260px;opacity:.85}
+  .effort-split{padding:30px;display:grid;gap:20px}
+  .split-row{display:grid;grid-template-columns:88px 1fr;gap:18px;align-items:start}
+  .split-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;padding-top:3px}
+  .split-tag.client{color:var(--sky)}
+  .split-tag.us{color:var(--amber)}
+  .split-row p{font-size:15px;color:var(--muted)}
+  .split-row p b{color:var(--text);font-weight:600}
+  .bar{height:8px;border-radius:4px;background:rgba(255,255,255,.08);margin-top:9px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:4px}
+  .bar.client i{width:5%;background:var(--sky)}
+  .bar.us i{width:96%;background:linear-gradient(90deg,var(--amber-deep),var(--amber))}
+  .effort-note{font-size:13px;color:var(--muted-soft);border-top:1px solid var(--panel-line);
+    padding-top:14px;margin-top:2px}
+
+  /* ---------- LIGHTBOX (linkedin) ---------- */
+  .lightbox{background:var(--paper);color:#16242f}
+  .lightbox .leg-title{color:#13212c}
+  .lightbox .leg-sub{color:#6a7a86}
+  .lightbox .leg-code{color:var(--amber-deep);border-color:rgba(240,137,43,.4)}
+  .li-intro{max-width:640px;color:#4a5963;font-size:16px;margin-bottom:34px}
+  .li-intro b{color:#16242f}
+  .posts{display:grid;gap:24px;grid-template-columns:1fr}
+  @media(min-width:840px){.posts{grid-template-columns:repeat(2,1fr);align-items:start}}
+  .li{
+    background:#fff;border:1px solid #e2ddd2;border-radius:12px;overflow:hidden;
+    box-shadow:0 18px 40px -28px rgba(10,23,34,.45);
+  }
+  .li.span2{grid-column:1/-1}
+  .li-tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:#fff;background:var(--li);padding:7px 14px;
+    display:flex;justify-content:space-between;align-items:center}
+  .li-tag.page{background:#16242f}
+  .li-body{padding:16px 18px 6px}
+  .li-head{display:flex;gap:11px;align-items:center;margin-bottom:13px}
+  .av{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+    font-family:"Saira Condensed",sans-serif;font-weight:800;font-size:18px;color:#fff;letter-spacing:.02em}
+  .av.p1{background:linear-gradient(140deg,#1c3a52,#0a66c2)}
+  .av.p2{background:linear-gradient(140deg,#6a1f1f,#b23a3a)}
+  .av.page{background:linear-gradient(140deg,#0A1722,#F0892B);border-radius:11px}
+  .li-meta b{display:block;font-size:15px;color:#1a2730;font-weight:600;line-height:1.2}
+  .li-meta .sub{font-size:12.5px;color:#67737c;line-height:1.35}
+  .li-meta .time{font-size:11.5px;color:#8a949b;display:flex;align-items:center;gap:5px;margin-top:1px}
+  .li-meta .time::after{content:"· 🌐"}
+  .edit-tag{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.06em;
+    background:#fff3df;color:#a8631a;border:1px solid #f0d9b0;padding:2px 6px;border-radius:4px;text-transform:uppercase}
+  .li-text{font-size:14.5px;color:#1d2a33;line-height:1.62;white-space:pre-line}
+  .li-text .h{font-weight:600}
+  .li-text .tags{color:var(--li);font-weight:500}
+  .li-react{display:flex;align-items:center;gap:8px;padding:11px 18px;border-top:1px solid #eee7da;
+    font-size:12.5px;color:#67737c;margin-top:10px}
+  .react-ic{display:flex}
+  .react-ic span{width:18px;height:18px;border-radius:50%;border:1.5px solid #fff;
+    display:flex;align-items:center;justify-content:center;font-size:9px;margin-left:-5px}
+  .react-ic span:first-child{margin-left:0}
+  .ri1{background:#0a66c2}.ri2{background:#d11a2a}.ri3{background:#f5a623}
+  .li-foot{display:flex;justify-content:space-around;padding:6px 8px;border-top:1px solid #eee7da;
+    font-size:13px;color:#5b6770;font-weight:500}
+  .li-foot div{padding:8px;border-radius:6px}
+
+  /* ---------- INSTAGRAM ---------- */
+  .ig-intro{max-width:640px;color:var(--muted);font-size:16px;margin-bottom:38px}
+  .ig-intro b{color:var(--text)}
+  .ig-stage{display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:880px){.ig-stage{grid-template-columns:300px 1fr}}
+  .phone{
+    width:288px;max-width:100%;margin:0 auto;aspect-ratio:9/19;border-radius:34px;
+    background:#000;border:9px solid #1b1b1e;position:relative;overflow:hidden;
+    box-shadow:0 40px 80px -40px rgba(0,0,0,.7);
+  }
+  .phone .notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);
+    width:96px;height:22px;background:#1b1b1e;border-radius:0 0 14px 14px;z-index:6}
+  .reel{position:absolute;inset:0;background:
+    radial-gradient(120% 80% at 50% 0%,rgba(255,178,62,.20),transparent 55%),
+    linear-gradient(180deg,#0e1d2b 0%,#16334a 55%,#0a1722 100%)}
+  .reel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .reel-couture{position:absolute;inset:0;z-index:1;background:
+    radial-gradient(64% 42% at 50% 14%,rgba(255,201,128,.32),transparent 62%),
+    linear-gradient(180deg,#1b1e25 0%,#101216 58%,#070809 100%)}
+  .reel-couture svg{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);width:66%;height:86%}
+  .reel-shade{position:absolute;inset:0;z-index:2;background:
+    linear-gradient(180deg,rgba(8,18,28,.45) 0%,rgba(8,18,28,0) 30%,rgba(8,18,28,.15) 60%,rgba(8,18,28,.85) 100%)}
+  .reel-grid{position:absolute;inset:0;opacity:.18;z-index:3;background-image:
+    linear-gradient(rgba(127,194,210,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(127,194,210,.10) 1px,transparent 1px);background-size:34px 34px}
+  .reel-cap{position:absolute;left:18px;right:62px;bottom:74px;z-index:4}
+  .reel-pov{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:9px}
+  .reel-cap h4{font-family:"Saira Condensed",sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:25px;line-height:1.02;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+  .reel-track{position:absolute;top:54px;left:18px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:rgba(255,255,255,.78);letter-spacing:.06em;z-index:4}
+  .reel-track b{color:var(--amber)}
+  .reel-rail{position:absolute;right:14px;bottom:78px;display:flex;flex-direction:column;gap:20px;z-index:5;align-items:center}
+  .reel-rail i{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);
+    display:flex;align-items:center;justify-content:center;font-style:normal;font-size:15px}
+  .reel-progress{position:absolute;top:40px;left:18px;right:18px;display:flex;gap:4px;z-index:5}
+  .reel-progress span{height:2.5px;flex:1;background:rgba(255,255,255,.3);border-radius:2px;overflow:hidden}
+  .reel-progress span.on i{display:block;height:100%;width:60%;background:#fff}
+  .reel-progress span.done i{display:block;height:100%;width:100%;background:#fff}
+
+  .board{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:520px){.board{grid-template-columns:repeat(3,1fr)}}
+  .frame{
+    border:1px solid var(--panel-line);border-radius:10px;padding:14px;
+    background:linear-gradient(180deg,rgba(18,43,64,.5),rgba(14,32,50,.2));
+    min-height:128px;display:flex;flex-direction:column;
+  }
+  .frame .fn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+    color:var(--amber);margin-bottom:9px}
+  .frame .ft{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:15px;line-height:1.08;color:var(--text);margin-bottom:7px}
+  .frame .fd{font-size:12.5px;color:var(--muted);margin-top:auto}
+  .ig-extra{margin-top:26px;border-left:2px solid var(--amber-deep);padding:4px 0 4px 18px;
+    color:var(--muted);font-size:14.5px;max-width:660px}
+  .ig-extra b{color:var(--text)}
+
+  /* ---------- SUB-BLOCK HEADER (inside sections) ---------- */
+  .sub{margin:54px 0 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .sub-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-deep)}
+  .sub h3{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(20px,3.4vw,30px);letter-spacing:.01em;line-height:1.02}
+  .lightbox .sub h3{color:#13212c}
+  .lightbox .sub-k{color:var(--amber-deep)}
+  .sub p.note{flex-basis:100%;color:#5a6973;font-size:14.5px;max-width:680px;margin-top:-6px}
+
+  /* ARTICLES (linkedin backlink) */
+  .arts{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:720px){.arts{grid-template-columns:repeat(2,1fr)}}
+  .art{background:#fff;border:1px solid #e2ddd2;border-radius:11px;padding:20px 20px 18px;
+    box-shadow:0 14px 32px -26px rgba(10,23,34,.4);display:flex;flex-direction:column}
+  .art .at{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--li);margin-bottom:11px;display:flex;align-items:center;gap:7px}
+  .art h4{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:19px;
+    line-height:1.04;color:#16242f;margin-bottom:9px}
+  .art p{font-size:13.5px;color:#55636c;line-height:1.5;margin-bottom:14px}
+  .art .link{margin-top:auto;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--amber-deep);
+    display:flex;align-items:center;gap:7px;border-top:1px dashed #e2ddd2;padding-top:11px}
+  .art .link b{color:#16242f;font-weight:600}
+  .backlink-why{margin-top:22px;background:#fff;border:1px solid #e8e2d6;border-left:3px solid var(--li);
+    border-radius:10px;padding:18px 20px}
+  .backlink-why b{color:#16242f}
+  .backlink-why p{color:#4a5963;font-size:14px}
+  .backlink-why ul{list-style:none;margin-top:10px;display:grid;gap:7px}
+  .backlink-why li{font-size:13.5px;color:#4a5963;padding-left:20px;position:relative}
+  .backlink-why li::before{content:"→";position:absolute;left:0;color:var(--amber-deep);font-family:"IBM Plex Mono",monospace}
+
+  /* IDEAS chips */
+  .ideas{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:680px){.ideas{grid-template-columns:repeat(2,1fr)}}
+  .idea{background:rgba(255,255,255,.55);border:1px solid #e2ddd2;border-radius:10px;padding:15px 17px}
+  .idea b{display:block;font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:16px;color:#16242f;letter-spacing:.01em;margin-bottom:4px}
+  .idea span{font-size:13.5px;color:#55636c}
+
+  /* RUBRIQUES (instagram editorial line) */
+  .rubs{display:grid;gap:14px;grid-template-columns:1fr;margin-top:8px}
+  @media(min-width:680px){.rubs{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.rubs{grid-template-columns:repeat(3,1fr)}}
+  .rub{border:1px solid var(--panel-line);border-radius:12px;padding:22px 20px;
+    background:linear-gradient(180deg,rgba(18,43,64,.5),rgba(14,32,50,.2));position:relative;overflow:hidden}
+  .rub .rn{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--amber);margin-bottom:12px}
+  .rub h4{font-family:"Saira Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:21px;
+    line-height:1.02;margin-bottom:8px}
+  .rub h4 em{font-style:normal;color:var(--amber)}
+  .rub p{font-size:14px;color:var(--muted);margin-bottom:12px}
+  .rub .freq{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--sky);border-top:1px solid var(--panel-line);padding-top:11px}
+  .rub.flag{background:linear-gradient(160deg,rgba(240,137,43,.18),rgba(18,43,64,.25));border-color:rgba(255,178,62,.3)}
+  .rub.flag .rn{color:var(--amber)}
+
+  /* AI SECTION */
+  .ai{background:linear-gradient(180deg,#081320,#0A1722)}
+  .ai-grid{display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:860px){.ai-grid{grid-template-columns:300px 1fr}}
+  .ai-shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--panel-line);
+    box-shadow:0 40px 80px -40px rgba(0,0,0,.7);max-width:300px;margin:0 auto}
+  .ai-shot img{display:block;width:100%;height:auto}
+  .ai-shot .badge{position:absolute;top:12px;left:12px;font-family:"IBM Plex Mono",monospace;
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#1a1006;background:var(--amber);
+    padding:5px 9px;border-radius:6px;font-weight:600}
+  .ai-shot .cap{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;
+    background:linear-gradient(180deg,transparent,rgba(8,18,28,.9));font-size:12px;color:#dfe7ee}
+  .ai-points{display:grid;gap:16px}
+  .ai-point{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start}
+  .ai-point .ic{font-family:"Saira Condensed",sans-serif;font-weight:800;color:var(--amber);font-size:20px;
+    border:1px solid rgba(255,178,62,.3);border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+  .ai-point h4{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:18px;margin-bottom:3px}
+  .ai-point p{color:var(--muted);font-size:14px}
+  .ai-tiers{display:grid;gap:14px;grid-template-columns:1fr;margin-top:34px}
+  @media(min-width:640px){.ai-tiers{grid-template-columns:1fr 1fr}}
+  .tier{border:1px solid var(--panel-line);border-radius:12px;padding:22px;background:rgba(18,43,64,.3)}
+  .tier.on{border-color:rgba(255,178,62,.4);background:linear-gradient(160deg,rgba(240,137,43,.14),rgba(18,43,64,.2))}
+  .tier .tl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .tier .tl.amber{color:var(--amber)}
+  .tier h4{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:20px;margin-bottom:9px}
+  .tier p{font-size:13.5px;color:var(--muted)}
+
+  /* CALENDAR */
+  .calx{background:var(--paper);color:#16242f}
+  .calx .leg-title{color:#13212c}.calx .leg-sub{color:#6a7a86}
+  .calx .leg-code{color:var(--amber-deep);border-color:rgba(240,137,43,.4)}
+  .cal-intro{max-width:680px;color:#4a5963;font-size:16px;margin-bottom:30px}
+  .cal-intro b{color:#16242f}
+  .cal{display:grid;gap:14px;grid-template-columns:1fr}
+  .week{background:#fff;border:1px solid #e2ddd2;border-radius:12px;overflow:hidden;
+    box-shadow:0 14px 30px -26px rgba(10,23,34,.4)}
+  .week-h{background:#13212c;color:#fff;padding:11px 18px;display:flex;justify-content:space-between;align-items:center;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .week-h .wk{font-family:"Saira Condensed",sans-serif;font-weight:700;font-size:18px;letter-spacing:.03em}
+  .week-h .theme{color:var(--amber)}
+  .slots{display:grid;grid-template-columns:1fr;gap:1px;background:#eee7da}
+  @media(min-width:760px){.slots{grid-template-columns:repeat(4,1fr)}}
+  .slot{background:#fff;padding:15px 16px;display:flex;flex-direction:column;gap:6px}
+  .slot .ch{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:6px}
+  .slot .ch::before{content:"";width:8px;height:8px;border-radius:50%}
+  .ch.cli{color:var(--li)}.ch.cli::before{background:var(--li)}
+  .ch.cig{color:#c1358a}.ch.cig::before{background:#c1358a}
+  .ch.cart{color:#0a7d5a}.ch.cart::before{background:#0a7d5a}
+  .slot b{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:15.5px;
+    color:#16242f;line-height:1.08}
+  .slot span{font-size:12.5px;color:#5b6770;line-height:1.4}
+  .cal-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;font-size:12.5px;color:#5b6770}
+  .cal-legend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+  .cal-legend i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .lg-li::before{background:var(--li)}.lg-ig::before{background:#c1358a}.lg-art::before{background:#0a7d5a}
+
+  /* ---------- CTA / FOOT ---------- */
+  .cta{background:var(--ink-2);border-top:1px solid var(--panel-line)}
+  .cta-in{display:grid;gap:26px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:760px){.cta-in{grid-template-columns:1.3fr .7fr}}
+  .cta h2{font-family:"Saira Condensed",sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(28px,5vw,46px);line-height:1;letter-spacing:.01em;margin-bottom:14px}
+  .cta h2 em{font-style:normal;color:var(--amber)}
+  .cta p{color:var(--muted);font-size:16px;max-width:460px}
+  .cta-box{border:1px solid var(--panel-line);border-radius:var(--r);padding:24px;background:var(--ink)}
+  .cta-box .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .cta-box .val{font-family:"Saira Condensed",sans-serif;font-weight:700;font-size:20px;text-transform:uppercase}
+  .cta-box .row{padding:11px 0;border-bottom:1px solid var(--panel-line)}
+  .cta-box .row:last-child{border:0;padding-bottom:0}
+  .cta-box .val.amber{color:var(--amber)}
+  footer{padding:30px 0 50px;border-top:1px solid var(--panel-line)}
+  .foot-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted-soft)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .dot{animation:none}
+    .dash{animation:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- MANIFEST BAR -->
+<div class="manifest">
+  <div class="manifest-row">
+    <div><b>SOCIAPP</b> <span class="brand-x">×</span> <b>TBI FRANCE</b></div>
+    <div class="manifest-mid">AWB&nbsp;074-PARIS&nbsp;/&nbsp;PROPOSITION&nbsp;DE&nbsp;CONTENU</div>
+    <div class="status"><span class="dot"></span> LIVE DEMO</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow reveal">Stratégie réseaux · LinkedIn + Instagram</div>
+    <h1 class="reveal">Arrêtons de faire<br>la com <span class="strike">d'un transitaire.</span><br>Faisons de TBI <em>un média.</em></h1>
+    <p class="hero-lede reveal">Dans la logistique, une page entreprise qui parle d'elle-même ne décolle jamais. <b>Personne ne suit un transitaire pour voir un transitaire.</b> Alors on change de terrain : TBI devient la référence qui décrypte le commerce international pour ceux qui exportent du sensible.</p>
+
+    <div class="route reveal">
+      <div class="route-head"><span>TRAJECTOIRE ÉDITORIALE</span><span>STATUS&nbsp;: EN ROUTE</span></div>
+      <svg class="route-svg" viewBox="0 0 900 74" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M40,58 C300,58 360,18 450,18 C540,18 600,58 860,58" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+        <path class="dash" d="M40,58 C300,58 360,18 450,18 C540,18 600,58 860,58" fill="none" stroke="#FFB23E" stroke-width="2.5" stroke-dasharray="10 8" stroke-linecap="round"/>
+        <circle cx="40" cy="58" r="6" fill="#7FC2D2"/>
+        <circle class="plane" cx="450" cy="18" r="5.5" fill="#FFB23E"/>
+        <circle cx="860" cy="58" r="6" fill="#FFB23E"/>
+      </svg>
+      <div class="route-ends">
+        <div class="route-end">« On parle de nous »<span>ORIGINE · faible portée</span></div>
+        <div class="route-end dest">« La source qui m'aide »<span>DESTINATION · autorité</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- LEG: REFRAME -->
+<section>
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">AWB-074 / POS</span>
+      <span class="leg-title">Le positionnement</span>
+      <span class="leg-sub">3 PILIERS · 1 PROMESSE</span>
+    </div>
+    <div class="reframe">
+      <div class="card reveal">
+        <div class="kx">01 — L'angle</div>
+        <h3>Un média, pas une vitrine</h3>
+        <p>On ne poste pas « nos camions ». On décrypte la douane, le fret, la chaîne du froid. L'autorité naît de <b>« cette boîte comprend mon problème »</b>, jamais de l'auto-promotion.</p>
+      </div>
+      <div class="card reveal">
+        <div class="kx">02 — La cible</div>
+        <h3>Ceux qui exportent du sensible</h3>
+        <p>Responsables export et supply chain dans le <b>vin, le luxe, la pharma, la cosmétique</b>. Des gens pour qui une erreur de transport coûte une fortune. On leur parle d'eux.</p>
+      </div>
+      <div class="card reveal">
+        <div class="kx">03 — Le moteur</div>
+        <h3>Le dirigeant, pas la page</h3>
+        <p>Une page entreprise = ~1&nbsp;% de portée. Un humain qui parle = <b>10 à 50× plus</b>. On ghostwrite le dirigeant, dans sa voix, sans qu'il ait à écrire une ligne.</p>
+      </div>
+    </div>
+
+    <!-- EFFORT MODEL -->
+    <div class="effort reveal">
+      <div class="effort-big">
+        <div class="num">0<small>HEURE DE PROD CÔTÉ CLIENT</small></div>
+        <p>Pas de brief, pas de réunion, pas de rédaction. On part de ce qui est déjà public : le site, le secteur, l'actualité douane et fret.</p>
+      </div>
+      <div class="effort-split">
+        <div class="split-row">
+          <div class="split-tag client">CLIENT</div>
+          <div>
+            <p><b>Un simple feu vert.</b> Vous validez les contenus avant publication, par email, quand vous avez deux minutes. Rien à préparer, rien à écrire, aucun rendez-vous.</p>
+            <div class="bar client"><i></i></div>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="split-tag us">SOCIAPP</div>
+          <div>
+            <p><b>Tout le reste, la matière comprise.</b> On trouve les sujets, on rédige, on ghostwrite, on crée les visuels, on monte les Reels et on programme les publications.</p>
+            <div class="bar us"><i></i></div>
+          </div>
+        </div>
+        <p class="effort-note">Envie d'ajouter une anecdote de terrain à un post ? Un vocal de 30 secondes suffit, mais ce n'est jamais une obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEG: LINKEDIN -->
+<section class="lightbox">
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">AWB-074 / LKD</span>
+      <span class="leg-title">LinkedIn — 3 posts prêts</span>
+      <span class="leg-sub">GÉNÉRATION DE LEADS B2B</span>
+    </div>
+    <p class="li-intro reveal">Voici très exactement le type de publications qu'on sortirait dès le premier mois. <b>Deux posts ghostwrités au nom du dirigeant, un décryptage au nom de la marque.</b> Zéro tournage, zéro storytelling à produire par le client.</p>
+
+    <div class="posts">
+
+      <!-- POST 1 -->
+      <article class="li reveal">
+        <div class="li-tag"><span>POST 01 · GHOSTWRITING DIRIGEANT</span><span class="edit-tag">nom à personnaliser</span></div>
+        <div class="li-body">
+          <div class="li-head">
+            <div class="av p1">TB</div>
+            <div class="li-meta">
+              <b>‹ Dirigeant TBI ›</b>
+              <span class="sub">Fondateur · TBI&nbsp;— Trans Business International</span>
+              <span class="time">Aujourd'hui</span>
+            </div>
+          </div>
+          <div class="li-text"><span class="h">Vendredi, 19h12. Mon téléphone sonne.</span>
+
+Une pièce bloquée à Singapour. Un avion cloué au sol. 80 000 € de pertes par jour pour la compagnie.
+
+Le fret classique ? 4 jours. Trop tard.
+
+Alors on a fait ce qu'aucun tableur ne prévoit : on a mis un membre de l'équipe dans le premier vol. La pièce dans une mallette, au poignet.
+
+Lundi 6h, l'avion redécollait.
+
+On croit que la logistique, c'est des conteneurs et des codes-barres. Parfois, c'est juste quelqu'un qui accepte un vol de nuit pour qu'une machine, à l'autre bout du monde, reparte.
+
+Ça s'appelle le <span class="h">hand carry</span>. Et c'est notre métier.
+
+<span class="tags">#fretaérien #AOG #logistique</span></div>
+          <div class="li-react">
+            <div class="react-ic"><span class="ri1">👍</span><span class="ri2">❤</span><span class="ri3">👏</span></div>
+            <span>312 · 47 commentaires</span>
+          </div>
+          <div class="li-foot"><div>👍 J'aime</div><div>💬 Commenter</div><div>↪ Partager</div></div>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="li reveal">
+        <div class="li-tag"><span>POST 02 · EXPERTISE VERTICALE — VIN</span><span class="edit-tag">nom à personnaliser</span></div>
+        <div class="li-body">
+          <div class="li-head">
+            <div class="av p2">TB</div>
+            <div class="li-meta">
+              <b>‹ Dirigeant TBI ›</b>
+              <span class="sub">Fondateur · TBI&nbsp;— Trans Business International</span>
+              <span class="time">Il y a 2 jours</span>
+            </div>
+          </div>
+          <div class="li-text">On m'a appelé la semaine dernière pour « sauver » une palette de grands crus bloquée en douane. Trop tard, évidemment.
+
+Voici les <span class="h">3 erreurs qui tuent un export de vin hors UE</span> — toutes évitables :
+
+<span class="h">1. Le DAE mal clôturé.</span> La douane ne pardonne pas. Votre palette dort en entrepôt, température non maîtrisée.
+
+<span class="h">2. Le code SH approximatif.</span> Un chiffre de travers sur la nomenclature = mauvais taux de droits, blocage, parfois saisie.
+
+<span class="h">3. Zéro plan de température.</span> Un cru qui prend 40°C sur un tarmac à Dubaï n'arrive jamais « grand ».
+
+Le vin se transporte comme il se vinifie : avec méthode. Sinon il meurt en route.
+
+<span class="tags">#vin #export #supplychain</span></div>
+          <div class="li-react">
+            <div class="react-ic"><span class="ri1">👍</span><span class="ri3">👏</span><span class="ri2">❤</span></div>
+            <span>198 · 31 commentaires</span>
+          </div>
+          <div class="li-foot"><div>👍 J'aime</div><div>💬 Commenter</div><div>↪ Partager</div></div>
+        </div>
+      </article>
+
+      <!-- POST 3 -->
+      <article class="li span2 reveal">
+        <div class="li-tag page"><span>POST 03 · MARQUE — NEWSLETTER « LE FRET DÉCRYPTÉ »</span><span>faceless · 100% produit par Sociapp</span></div>
+        <div class="li-body">
+          <div class="li-head">
+            <div class="av page">TBI</div>
+            <div class="li-meta">
+              <b>TBI — Trans Business International</b>
+              <span class="sub">Le Fret Décrypté · édition #01</span>
+              <span class="time">Cette semaine</span>
+            </div>
+          </div>
+          <div class="li-text"><span class="h">LE FRET DÉCRYPTÉ #01 — Pourquoi vos délais aériens s'allongent (et ce que ça change pour vous).</span>
+
+Le report d'une partie du fret maritime vers l'aérien sature les soutes. Concrètement, pour un exportateur : capacité plus rare, tarifs plus nerveux, priorité aux marchandises… bien préparées.
+
+Ce qui embarque en premier aujourd'hui :
+→ les dossiers documentaires complets dès le départ
+→ les marchandises pré-dédouanées
+→ les chargeurs qui réservent tôt
+
+La capacité ne se gagne plus seulement au prix. Elle se gagne à la préparation.
+
+On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
+
+<span class="tags">#fretaérien #commerceinternational #douane</span></div>
+          <div class="li-react">
+            <div class="react-ic"><span class="ri1">👍</span><span class="ri3">👏</span></div>
+            <span>156 · 12 commentaires · 1 nouvel abonné newsletter</span>
+          </div>
+          <div class="li-foot"><div>👍 J'aime</div><div>💬 Commenter</div><div>✉ S'abonner</div><div>↪ Partager</div></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ARTICLES + BACKLINK -->
+    <div class="sub reveal">
+      <span class="sub-k mono">+ FORMAT LONG</span>
+      <h3>Articles LinkedIn &amp; backlinks vers le site</h3>
+      <p class="note">Au-delà des posts, on publie de vrais articles longs natifs LinkedIn. Chacun renvoie vers une page de tbifrance.com. LinkedIn a une autorité de domaine énorme, ses articles s'indexent dans Google, et le lien envoie du trafic qualifié + des signaux de marque vers le site.</p>
+    </div>
+    <div class="arts">
+      <article class="art reveal">
+        <div class="at mono">📄 ARTICLE · évergreen</div>
+        <h4>Exporter du vin hors UE en 2026 : le guide complet (douane, température, assurance)</h4>
+        <p>Le contenu de référence que tape un responsable export sur Google. Publié sur LinkedIn, maillé vers la page Douane du site.</p>
+        <div class="link mono">↳ lien vers <b>tbifrance.com</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">📄 ARTICLE · expertise</div>
+        <h4>AOG : que se passe-t-il vraiment quand un avion est cloué au sol ?</h4>
+        <p>Un sujet spectaculaire qui montre l'expertise sans parler "transport". Renvoie vers la page Fret aérien.</p>
+        <div class="link mono">↳ lien vers <b>tbifrance.com</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">📄 ARTICLE · pharma</div>
+        <h4>Chaîne du froid pharma : les 7 points de rupture que personne ne surveille</h4>
+        <p>Parle directement aux labos et distributeurs médicaux. Positionne TBI sur une verticale à forte valeur.</p>
+        <div class="link mono">↳ lien vers <b>tbifrance.com</b></div>
+      </article>
+      <article class="art reveal">
+        <div class="at mono">📄 ARTICLE · pédago</div>
+        <h4>Incoterms 2020 pour les PME : qui paie quoi, qui risque quoi</h4>
+        <p>Le b.a.-ba que tout exportateur cherche. Capte un trafic large et renvoie vers les services.</p>
+        <div class="link mono">↳ lien vers <b>tbifrance.com</b></div>
+      </article>
+    </div>
+    <div class="backlink-why reveal">
+      <p><b>Pourquoi ça compte pour le site de TBI :</b></p>
+      <ul>
+        <li>LinkedIn = autorité de domaine ~98 : ses articles sont indexés par Google et ressortent sur des requêtes de niche</li>
+        <li>Le lien renvoie un trafic référent ultra-qualifié (décideurs B2B) directement sur le site</li>
+        <li>Effet de marque : présence sur le nom de TBI + sur les sujets d'expertise</li>
+        <li>Chaque article se recycle ensuite en posts, newsletter et carrousels</li>
+      </ul>
+    </div>
+
+    <!-- AUTRES FORMATS -->
+    <div class="sub reveal">
+      <span class="sub-k mono">+ AUTRES FORMATS</span>
+      <h3>Des posts qui sortent de l'ordinaire</h3>
+      <p class="note">On ne parle jamais "transport" frontalement. On crée de la curiosité.</p>
+    </div>
+    <div class="ideas">
+      <div class="idea reveal"><b>« On a transporté ___ »</b><span>Devine la marchandise. Un post mystère anonymisé (une voiture à 2 M€ ? un Stradivarius ?).</span></div>
+      <div class="idea reveal"><b>Carrousel PDF natif</b><span>Le format avec la meilleure portée organique sur LinkedIn. « 5 schémas pour comprendre un dédouanement. »</span></div>
+      <div class="idea reveal"><b>Sondage de niche</b><span>« Votre pire galère à l'export, c'est… ? » On fait parler la cible et on récolte des sujets de contenu.</span></div>
+      <div class="idea reveal"><b>Newsjacking douane / fret</b><span>Une actu tombe (taxe, grève, route maritime) : on décrypte dans l'heure. Position d'expert réactif.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEG: INSTAGRAM -->
+<section>
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">AWB-074 / IGM</span>
+      <span class="leg-title">Instagram — « POV : ton colis »</span>
+      <span class="leg-sub">FACELESS · CINÉMATIQUE</span>
+    </div>
+    <p class="ig-intro reveal">Le client ne veut pas se filmer ? <b>On ne filme personne.</b> La logistique est spectaculaire sans aucun humain à l'écran. Format Reel addictif : on suit un objet du magasin parisien jusqu'à sa vitrine à l'autre bout du monde. Images générées + quelques plans bruts au smartphone, <b>montés intégralement par nos soins.</b></p>
+
+    <div class="ig-stage">
+      <div class="phone reveal" aria-label="Aperçu du Reel Instagram">
+        <div class="notch"></div>
+        <div class="reel">
+          <img class="reel-img" src="assets/reel-couture-robe.jpg" alt="Robe haute couture sous projecteur">
+          <div class="reel-shade"></div>
+          <div class="reel-grid"></div>
+          <div class="reel-progress">
+            <span class="done"><i></i></span><span class="done"><i></i></span><span class="on"><i></i></span><span></span><span></span>
+          </div>
+          <div class="reel-track">CDG <b>→</b> NRT · <b>22:47</b></div>
+          <div class="reel-cap">
+            <div class="reel-pov">Une robe haute couture. 40 000 €.</div>
+            <h4>Quel rapport avec notre métier ?</h4>
+          </div>
+          <div class="reel-rail">
+            <i>♥</i><i>💬</i><i>↪</i><i>⋯</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="board reveal">
+        <div class="frame"><div class="fn">FRAME 01</div><div class="ft">Paris, 21h.</div><div class="fd">Une boutique à la fermeture. « POV : tu es une robe haute couture. »</div></div>
+        <div class="frame"><div class="fn">FRAME 02</div><div class="ft">L'emballage</div><div class="fd">Mains gantées, papier de soie, caisse sur-mesure. « On t'emballe comme une œuvre. »</div></div>
+        <div class="frame"><div class="fn">FRAME 03</div><div class="ft">Le tarmac, CDG</div><div class="fd">Soute qui s'ouvre, lumière ambre, nuit. « 22h47 — embarquement. »</div></div>
+        <div class="frame"><div class="fn">FRAME 04</div><div class="ft">La trajectoire</div><div class="fd">Carte animée, trait lumineux Paris → Tokyo. « 11 342 km plus tard. »</div></div>
+        <div class="frame"><div class="fn">FRAME 05</div><div class="ft">Tokyo, 9h.</div><div class="fd">Vitrine, lumière du matin. « Tu es en place. Personne n'a su comment. »</div></div>
+        <div class="frame" style="background:linear-gradient(150deg,var(--amber-deep),var(--amber));color:#1a1006">
+          <div class="fn" style="color:#1a1006">FIN</div><div class="ft" style="color:#1a1006">TBI · Everywhere.</div><div class="fd" style="color:#3a2810">Carton final + logo. Légende + CTA en bio.</div></div>
+      </div>
+    </div>
+
+    <div class="sub reveal">
+      <span class="sub-k mono">+ LIGNE ÉDITORIALE LONG TERME</span>
+      <h3>5 rubriques qui tournent, semaine après semaine</h3>
+      <p class="note" style="color:var(--muted)">« POV : ton colis » est le format signature, mais une page tient dans la durée grâce à des rendez-vous récurrents et variés. Voici la grille qu'on ferait tourner : jamais "on transporte des trucs", toujours du récit, du jeu, du beau.</p>
+    </div>
+    <div class="rubs">
+      <div class="rub flag reveal"><div class="rn mono">RUBRIQUE 01 · SIGNATURE</div><h4><em>POV : ton colis</em></h4><p>Reels narratifs immersifs : on devient l'objet (robe, montre, grand cru) et on vit son voyage de la boutique à l'autre bout du monde.</p><div class="freq mono">1 Reel / semaine</div></div>
+      <div class="rub reveal"><div class="rn mono">RUBRIQUE 02 · JEU</div><h4>Cargo Confidentiel</h4><p>La marchandise mystère de la semaine. Indices flous, on fait deviner ce qu'on a expédié. Curiosité et commentaires.</p><div class="freq mono">1 post / semaine</div></div>
+      <div class="rub reveal"><div class="rn mono">RUBRIQUE 03 · VOYAGE</div><h4>Carte postale</h4><p>Une destination par semaine. Belle image + un fait insolite sur le commerce avec ce pays. On vend le monde, pas le camion.</p><div class="freq mono">1 post / semaine</div></div>
+      <div class="rub reveal"><div class="rn mono">RUBRIQUE 04 · PÉDAGO</div><h4>Anatomie d'une expédition</h4><p>Carrousel graphique : comment on emballe et protège une œuvre d'art, une caisse de Romanée-Conti, une pièce d'avion.</p><div class="freq mono">1 carrousel / 2 sem.</div></div>
+      <div class="rub reveal"><div class="rn mono">RUBRIQUE 05 · HUMAIN</div><h4>3h47 du matin</h4><p>L'envers du décor nocturne, sans visage : mains gantées, tarmac, café, écrans radar. L'âme du métier et la marque employeur.</p><div class="freq mono">stories + 1 Reel / mois</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEG: AI OPTION -->
+<section class="ai">
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">AWB-074 / AIV</span>
+      <span class="leg-title">Option — visuels &amp; vidéos IA</span>
+      <span class="leg-sub">SI BUDGET DÉDIÉ</span>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-shot reveal">
+        <span class="badge mono">100% GÉNÉRÉ PAR IA</span>
+        <img src="assets/reel-pov-tarmac.jpg" alt="Visuel IA : caisse de fret sur le tarmac de nuit">
+        <div class="cap">Aucun shooting, aucun déplacement. Cette image du Reel « POV : ton colis » a été générée pour TBI en quelques minutes.</div>
+      </div>
+      <div>
+        <p class="ig-intro reveal" style="margin-bottom:24px">Le fret de luxe est <b>spectaculaire mais impossible à filmer</b> : pas d'accès aux soutes de nuit, aux marchandises clients, aux tarmacs. L'IA lève ce blocage et donne à TBI une signature visuelle de grande maison, à coût maîtrisé.</p>
+        <div class="ai-points">
+          <div class="ai-point reveal"><div class="ic">✦</div><div><h4>Des images impossibles à shooter</h4><p>Tarmac de nuit, soute ouverte, marchandise précieuse en lumière dramatique. Sans budget photo ni autorisation aéroport.</p></div></div>
+          <div class="ai-point reveal"><div class="ic">▶</div><div><h4>Des Reels « POV » animés</h4><p>On part de l'image et on l'anime (image-to-video) : le colis qui voyage, la soute qui se ferme, la carte qui se trace.</p></div></div>
+          <div class="ai-point reveal"><div class="ic">◈</div><div><h4>Une signature reproductible</h4><p>Même palette, même grain, même lumière sur chaque visuel. La marque devient reconnaissable au premier coup d'œil.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-tiers">
+      <div class="tier reveal"><div class="tl mono">FORMULE DE BASE</div><h4>Sans IA</h4><p>Graphisme + photos prises au smartphone par l'équipe à Roissy + montage. Déjà solide, déjà différenciant.</p></div>
+      <div class="tier on reveal"><div class="tl mono amber">AVEC OPTION IA</div><h4>Visuels &amp; vidéos générés</h4><p>On ajoute des images et des Reels cinématiques sur mesure. Niveau « grande maison » sans logistique de tournage. Budget IA dédié à cadrer ensemble.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEG: CALENDAR -->
+<section class="calx">
+  <div class="wrap">
+    <div class="leg reveal">
+      <span class="leg-code mono">AWB-074 / CAL</span>
+      <span class="leg-title">Un mois, en clair</span>
+      <span class="leg-sub">LINKEDIN + INSTAGRAM</span>
+    </div>
+    <p class="cal-intro reveal">Voilà à quoi ressemblerait un premier mois : <b>jamais deux fois le même format.</b> Un fil rouge sur LinkedIn pour les leads, une ligne narrative sur Instagram pour la marque. Le tout produit par Sociapp à partir de sources publiques : vous validez avant publication, c'est tout.</p>
+    <div class="cal">
+
+      <div class="week reveal">
+        <div class="week-h"><span class="wk">Semaine 1</span><span class="theme">On plante le décor</span></div>
+        <div class="slots">
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Histoire — le hand carry</b><span>La pièce d'avion sauvée en mallette. Le post qui fait découvrir le métier.</span></div>
+          <div class="slot"><span class="ch cli mono">LinkedIn · marque</span><b>Le Fret Décrypté #01</b><span>Newsletter : pourquoi les délais aériens s'allongent.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>POV : ton colis #1</b><span>Reel : la robe haute couture, Paris → Tokyo.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>Carte postale</b><span>Direction Tokyo + un fait insolite. Story + post.</span></div>
+        </div>
+      </div>
+
+      <div class="week reveal">
+        <div class="week-h"><span class="wk">Semaine 2</span><span class="theme">On installe l'expertise</span></div>
+        <div class="slots">
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Expertise — 3 erreurs vin</b><span>Le post verticale qui parle aux domaines viticoles.</span></div>
+          <div class="slot"><span class="ch cart mono">Article + backlink</span><b>Guide export vin hors UE</b><span>Article long natif, lien vers tbifrance.com.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>Cargo Confidentiel</b><span>Devine la marchandise mystère de la semaine.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>Anatomie d'une expédition</b><span>Carrousel : emballer une caisse de grands crus.</span></div>
+        </div>
+      </div>
+
+      <div class="week reveal">
+        <div class="week-h"><span class="wk">Semaine 3</span><span class="theme">On crée la conversation</span></div>
+        <div class="slots">
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Newsjacking</b><span>Réaction à une actu fret / douane, dans l'heure.</span></div>
+          <div class="slot"><span class="ch cli mono">LinkedIn · marque</span><b>Carrousel PDF</b><span>Les Incoterms expliqués en 5 schémas.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>3h47 du matin</b><span>Reel : l'envers du décor nocturne du fret.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>Carte postale</b><span>Destination de la semaine + fait insolite.</span></div>
+        </div>
+      </div>
+
+      <div class="week reveal">
+        <div class="week-h"><span class="wk">Semaine 4</span><span class="theme">On apporte la preuve</span></div>
+        <div class="slots">
+          <div class="slot"><span class="ch cli mono">LinkedIn · dirigeant</span><b>Étude de cas</b><span>Une livraison express anonymisée, chiffrée.</span></div>
+          <div class="slot"><span class="ch cli mono">LinkedIn · marque</span><b>Décrypté #02 + sondage</b><span>Newsletter + poll de niche pour engager la cible.</span></div>
+          <div class="slot"><span class="ch cig mono">Instagram</span><b>POV : ton colis #2</b><span>Reel : la caisse de grands crus, Bordeaux → Hong Kong.</span></div>
+          <div class="slot"><span class="ch cart mono">Article + backlink</span><b>AOG : avion cloué au sol</b><span>Article long natif, lien vers tbifrance.com.</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="cal-legend reveal">
+      <i class="lg-li">LinkedIn — dirigeant / marque</i>
+      <i class="lg-art">Article LinkedIn (backlink site)</i>
+      <i class="lg-ig">Instagram</i>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-in">
+    <div class="reveal">
+      <h2>Prochaine étape :<br><em>on vous montre un mois complet.</em></h2>
+      <p>Ce kit n'est qu'un échantillon. On peut produire le calendrier éditorial des 4 prochaines semaines — LinkedIn + Instagram — pour que vous voyiez exactement ce qui sera publié, avant tout engagement.</p>
+    </div>
+    <div class="cta-box reveal">
+      <div class="row"><div class="lbl">Réseaux</div><div class="val">LinkedIn + Instagram</div></div>
+      <div class="row"><div class="lbl">Effort client</div><div class="val amber">Valider, c'est tout</div></div>
+      <div class="row"><div class="lbl">Production</div><div class="val">100 % Sociapp</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>SOCIAPP × TBI FRANCE · 2026</span>
+    <span>EVERYTIME · EVERYWHERE · ANYWHERE</span>
+    <span>CONTENU DE DÉMONSTRATION</span>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,4)*60)+'ms';io.observe(el)});
+
+  // plane travels the route path
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce){
+    const path=document.querySelector('.route-svg path.dash');
+    const plane=document.querySelector('.plane');
+    if(path&&plane){
+      const len=path.getTotalLength();let t=0;
+      setInterval(()=>{t=(t+0.0024)%1;const p=path.getPointAtLength(t*len);
+        plane.setAttribute('cx',p.x);plane.setAttribute('cy',p.y);},30);
+      const s=document.createElement('style');
+      s.textContent='.dash{animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-18}}';
+      document.head.appendChild(s);
+    }
+  }
+</script>
+</body>
+</html>
