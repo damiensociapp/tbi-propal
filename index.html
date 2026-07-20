@@ -73,29 +73,12 @@
     font-size:clamp(42px,8.5vw,92px);line-height:.96;letter-spacing:-.01em;
     text-transform:uppercase;margin-bottom:26px;
   }
-  h1 .strike{position:relative;color:var(--muted);white-space:nowrap}
-  h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:6px;
-    background:var(--amber-deep);transform:rotate(-1.5deg);border-radius:3px}
+  h1 .strike{color:var(--muted);text-decoration:line-through;
+    text-decoration-color:var(--amber-deep);text-decoration-thickness:.075em;
+    text-decoration-skip-ink:none}
   h1 em{font-style:normal;color:var(--amber)}
   .hero-lede{font-size:clamp(17px,2.3vw,21px);color:var(--muted);max-width:640px;margin-bottom:40px}
   .hero-lede b{color:var(--text);font-weight:600}
-
-  /* flight path */
-  .route{
-    margin-top:14px;border:1px solid var(--panel-line);border-radius:var(--r);
-    background:linear-gradient(180deg,rgba(18,43,64,.55),rgba(18,43,64,.15));
-    padding:22px 26px;position:relative;overflow:hidden;
-  }
-  .route-head{display:flex;justify-content:space-between;align-items:center;
-    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-  .route-svg{width:100%;height:74px;display:block}
-  .route-ends{display:flex;justify-content:space-between;margin-top:6px}
-  .route-end{font-family:"Saira Condensed",sans-serif;font-weight:700;text-transform:uppercase;
-    font-size:clamp(15px,2.4vw,20px);letter-spacing:.02em}
-  .route-end span{display:block;font-family:"IBM Plex Mono",monospace;font-weight:400;
-    font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:3px}
-  .route-end.dest{text-align:right;color:var(--amber)}
 
   /* ---------- SECTION SHELL ---------- */
   section{padding:64px 0}
@@ -494,23 +477,8 @@
 <header class="hero">
   <div class="wrap">
     <div class="hero-eyebrow reveal">Stratégie de contenu · LinkedIn, Instagram &amp; SEO</div>
-    <h1 class="reveal">Arrêtons de courir<br><span class="strike">après les clients.</span><br>Faisons en sorte<br><em>qu'ils vous trouvent.</em></h1>
+    <h1 class="reveal"><span class="strike">La com d'un transitaire.</span><br>Un média, des articles, du récit.<br><em>Et du trafic.</em></h1>
     <p class="hero-lede reveal">Personne ne suit un transitaire pour voir un transitaire, et personne ne tape votre nom dans Google. <b>Alors on change de terrain.</b> TBI devient la référence qui répond aux questions que se posent ceux qui exportent du sensible. Sur LinkedIn comme sur Google.</p>
-
-    <div class="route reveal">
-      <div class="route-head"><span>TRAJECTOIRE ÉDITORIALE</span><span>STATUS&nbsp;: EN ROUTE</span></div>
-      <svg class="route-svg" viewBox="0 0 900 74" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M40,58 C300,58 360,18 450,18 C540,18 600,58 860,58" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
-        <path class="dash" d="M40,58 C300,58 360,18 450,18 C540,18 600,58 860,58" fill="none" stroke="#FFB23E" stroke-width="2.5" stroke-dasharray="10 8" stroke-linecap="round"/>
-        <circle cx="40" cy="58" r="6" fill="#7FC2D2"/>
-        <circle class="plane" cx="450" cy="18" r="5.5" fill="#FFB23E"/>
-        <circle cx="860" cy="58" r="6" fill="#FFB23E"/>
-      </svg>
-      <div class="route-ends">
-        <div class="route-end">« On parle de nous »<span>ORIGINE · faible portée</span></div>
-        <div class="route-end dest">« La source qui m'aide »<span>DESTINATION · autorité</span></div>
-      </div>
-    </div>
   </div>
 </header>
 
@@ -1106,20 +1074,6 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,4)*60)+'ms';io.observe(el)});
 
-  // plane travels the route path
-  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(!reduce){
-    const path=document.querySelector('.route-svg path.dash');
-    const plane=document.querySelector('.plane');
-    if(path&&plane){
-      const len=path.getTotalLength();let t=0;
-      setInterval(()=>{t=(t+0.0024)%1;const p=path.getPointAtLength(t*len);
-        plane.setAttribute('cx',p.x);plane.setAttribute('cy',p.y);},30);
-      const s=document.createElement('style');
-      s.textContent='.dash{animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-18}}';
-      document.head.appendChild(s);
-    }
-  }
-</script>
+  </script>
 </body>
 </html>
