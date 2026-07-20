@@ -281,18 +281,23 @@
   .volet.opt .vn{color:var(--sky)}
 
   /* ---------- SEO SECTION ---------- */
-  .seo-stat{display:grid;grid-template-columns:1fr;border:1px solid #e2ddd2;border-radius:12px;
-    overflow:hidden;background:#fff;margin-bottom:8px;box-shadow:0 14px 32px -28px rgba(10,23,34,.4)}
-  @media(min-width:700px){.seo-stat{grid-template-columns:1fr 1fr}}
-  .seo-stat .half{padding:24px 22px}
-  .seo-stat .half.now{background:#f7f3ea;border-bottom:1px solid #e2ddd2}
-  @media(min-width:700px){.seo-stat .half.now{border-bottom:0;border-right:1px solid #e2ddd2}}
+  .seo-stat{display:grid;grid-template-columns:1fr;gap:1px;background:#e2ddd2;
+    border:1px solid #e2ddd2;border-radius:12px;overflow:hidden;margin-bottom:8px;
+    box-shadow:0 14px 32px -28px rgba(10,23,34,.4)}
+  @media(min-width:760px){.seo-stat{grid-template-columns:repeat(3,1fr)}}
+  .seo-stat .half{padding:24px 22px;background:#fff}
+  .seo-stat .half.now{background:#f7f3ea}
+  .seo-stat .half.peak{background:linear-gradient(160deg,#fff6e8,#fff)}
   .seo-stat .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
     text-transform:uppercase;color:#6a7a86;margin-bottom:10px}
   .seo-stat .big{font-family:"Saira Condensed",sans-serif;font-weight:800;
     font-size:clamp(36px,6.5vw,56px);line-height:.9;color:#16242f;letter-spacing:-.01em}
   .seo-stat .big.amber{color:var(--amber-deep)}
   .seo-stat p{font-size:13.5px;color:#55636c;margin-top:10px}
+  .kw{display:flex;align-items:center;gap:9px;background:#f4f0e7;border:1px solid #e2ddd2;
+    border-radius:999px;padding:9px 15px;margin-bottom:13px;font-family:"IBM Plex Mono",monospace;
+    font-size:12px;color:#3c4a54;line-height:1.35}
+  .kw::before{content:"⌕";font-size:16px;color:var(--amber-deep);flex:none;font-weight:700}
 
   /* ---------- SUB-BLOCK HEADER (inside sections) ---------- */
   .sub{margin:54px 0 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
@@ -799,9 +804,14 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
         <p>Votre site ne compte qu'une page d'accueil. Google n'a donc qu'une seule porte d'entrée à proposer, et uniquement à ceux qui cherchent déjà votre nom.</p>
       </div>
       <div class="half">
-        <div class="lbl mono">DANS 6 MOIS</div>
-        <div class="big amber">20+ pages</div>
-        <p>Chaque article devient une porte d'entrée sur une question précise, et une cible pour les liens publiés depuis LinkedIn dans le volet 01.</p>
+        <div class="lbl mono">CHAQUE MOIS</div>
+        <div class="big">10 articles</div>
+        <p>Dix nouvelles portes d'entrée par mois, chacune positionnée sur une question précise que vos prospects tapent déjà.</p>
+      </div>
+      <div class="half peak">
+        <div class="lbl mono">AU BOUT D'UN AN</div>
+        <div class="big amber">120 articles</div>
+        <p>De quoi couvrir la quasi-totalité des mots-clés de votre niche, et alimenter en cibles les liens publiés depuis LinkedIn dans le volet 01.</p>
       </div>
     </div>
 
@@ -812,25 +822,29 @@ On décrypte le fret pour ceux qui exportent du sensible. Tous les 15 jours.
     </div>
     <div class="arts">
       <article class="art reveal">
-        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <div class="at mono">MOT-CLÉ CIBLÉ</div>
+        <div class="kw">expédier du vin par avion vers les états-unis</div>
         <h4>Expédier du vin par avion vers les États-Unis : douane, température et coûts</h4>
         <p>Un domaine viticole qui prépare son premier export tape exactement cette question. Il ne cherche pas un transporteur, il cherche une réponse. On la lui donne, il vous appelle.</p>
         <div class="link mono">↳ intention : <b>très forte, prospect prêt à acheter</b></div>
       </article>
       <article class="art reveal">
-        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <div class="at mono">MOT-CLÉ CIBLÉ</div>
+        <div class="kw">délai livraison pièce avion aog urgence</div>
         <h4>Pièce d'avion AOG : quel délai réel pour une livraison d'urgence ?</h4>
         <p>Une compagnie avec un appareil cloué au sol cherche dans la minute. Ce sont les dossiers les plus rentables, et personne dans votre secteur n'écrit dessus.</p>
         <div class="link mono">↳ intention : <b>urgence, panier très élevé</b></div>
       </article>
       <article class="art reveal">
-        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <div class="at mono">MOT-CLÉ CIBLÉ</div>
+        <div class="kw">transporter une œuvre d'art hors ue douane</div>
         <h4>Transporter une œuvre d'art hors UE : formalités, emballage, assurance</h4>
         <p>Galeries et maisons de vente cherchent un spécialiste, pas un généraliste. Un article de fond vous positionne immédiatement comme l'expert de cette niche.</p>
         <div class="link mono">↳ intention : <b>niche à forte valeur</b></div>
       </article>
       <article class="art reveal">
-        <div class="at mono">🔍 REQUÊTE LONGUE TRAÎNE</div>
+        <div class="at mono">MOT-CLÉ CIBLÉ</div>
+        <div class="kw">délai dédouanement roissy cdg</div>
         <h4>Dédouanement à Roissy CDG : combien de temps ça prend vraiment ?</h4>
         <p>Une requête locale, très recherchée, qui capte les PME d'Île-de-France au moment précis où elles se posent la question de changer de prestataire.</p>
         <div class="link mono">↳ intention : <b>recherche locale, fort volume</b></div>
